@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Header() {
+function Header({ postTweet }) {
+  const [tweet, setTweet] = useState("");
+
   return (
     <div className="container">
       <div className="row">
@@ -19,13 +21,25 @@ function Header() {
                 </div>
                 <div className="col-8 d-flex align-items-center">
                   <input
+                    value={tweet}
+                    onChange={(event) => {
+                      setTweet(event.target.value);
+                    }}
                     type="text"
                     className="form-control border-0"
                     placeholder="Whats happening?"
                   />
                 </div>
                 <div className="col-2 d-flex align-items-center">
-                  <button className="btn btn-primary w-100">Tweet </button>
+                  <button
+                    onClick={() => {
+                      postTweet(tweet);
+                      setTweet("");
+                    }}
+                    className="btn btn-primary w-100"
+                  >
+                    Tweet{" "}
+                  </button>
                 </div>
               </div>
             </div>
