@@ -6,10 +6,10 @@ function Header({ postTweet }) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-2 border-end">
+        <div className="col-md-2 border-end">
           <i class="bi bi-twitter h1 text-primary"></i>
         </div>
-        <div className="col-6">
+        <div className="col-md-6">
           <div className="row">
             <div className="col-12 py-2">
               <h4>Home</h4>
@@ -45,7 +45,7 @@ function Header({ postTweet }) {
             </div>
           </div>
         </div>
-        <div className="col-4 border-start">
+        <div className="col-md-4 border-start">
           <div className="row">
             <div className="col-12 py-2">
               <input
