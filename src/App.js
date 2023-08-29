@@ -36,7 +36,11 @@ function App() {
   return (
     <>
       <Header postTweet={postTweet} />
-      <AllTweets allTweets={allTweets} loading={loading} />
+      <AllTweets
+        allTweets={allTweets}
+        loading={loading}
+        getTweets={getTweets}
+      />
     </>
   );
 }
