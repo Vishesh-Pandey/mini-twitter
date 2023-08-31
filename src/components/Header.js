@@ -3,6 +3,12 @@ import React, { useState } from "react";
 function Header({ postTweet }) {
   const [tweet, setTweet] = useState("");
 
+  function addTweet(event) {
+    event.preventDefault();
+    postTweet(tweet);
+    setTweet("");
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -15,7 +21,10 @@ function Header({ postTweet }) {
               <h4>Home</h4>
             </div>
             <div className="col-12">
-              <div className="row border border-2 border-start-0 border-end-0 py-2">
+              <form
+                onSubmit={addTweet}
+                className="row border border-2 border-start-0 border-end-0 py-2"
+              >
                 <div className="col-2">
                   <i class="bi bi-person-circle h1"></i>
                 </div>
@@ -28,20 +37,16 @@ function Header({ postTweet }) {
                     type="text"
                     className="form-control border-0"
                     placeholder="Whats happening?"
+                    required
+                    minLength={5}
                   />
                 </div>
                 <div className="col-2 d-flex align-items-center">
-                  <button
-                    onClick={() => {
-                      postTweet(tweet);
-                      setTweet("");
-                    }}
-                    className="btn btn-primary w-100"
-                  >
-                    Tweet{" "}
+                  <button type="submit" className="btn btn-primary w-100">
+                    Tweet
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
