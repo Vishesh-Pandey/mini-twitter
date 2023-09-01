@@ -17,8 +17,29 @@ function Header({ postTweet }) {
         </div>
         <div className="col-md-6">
           <div className="row">
-            <div className="col-12 py-2">
+            <div className="col-12 py-2 d-flex justify-content-between ">
               <h4>Home</h4>
+              <div class="dropdown">
+                <button
+                  class="dropdown-toggle btn btn-outline-dark border-0"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-three-dots"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item">Sort by Tweet</button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item">Sort by Date</button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item">Sort by likes</button>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div className="col-12">
               <form
