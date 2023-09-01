@@ -19,7 +19,17 @@ function Tweet({ tweet }) {
     setLoading(false);
   };
 
-  const reportTweet = async (tweet) => {};
+  const reportTweet = async () => {
+    let response = await fetch(
+      `https://apex.oracle.com/pls/apex/vishesh24/tweets/report?tweet=${tweet.tweet}`,
+      { method: "POST" }
+    );
+    if (response.status === 200) {
+      alert("tweet reported!");
+    } else {
+      alert("tweet not reported!");
+    }
+  };
 
   return (
     <div className="row my-1">
