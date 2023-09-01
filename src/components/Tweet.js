@@ -19,9 +19,11 @@ function Tweet({ tweet }) {
     setLoading(false);
   };
 
+  const reportTweet = async (tweet) => {};
+
   return (
     <div className="row my-1">
-      <div className="col-md-6 offset-md-2 border border-2 rounded bg-secondary bg-opacity-25">
+      <div className="col-md-6 offset-md-2 border border-2 rounded bg-secondary bg-opacity-25 position-relative">
         <p>Date : {tweet.datetime}</p>
         <h4>{tweet.tweet}</h4>
         {loading ? (
@@ -42,6 +44,23 @@ function Tweet({ tweet }) {
             <i class="bi bi-heart-fill"></i> {tweet.likes + like}
           </button>
         )}
+        <div className="position-absolute top-0 end-0">
+          <button
+            className="btn btn-outline-secondary border-0 dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <button onClick={reportTweet} className="dropdown-item">
+                Report
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
