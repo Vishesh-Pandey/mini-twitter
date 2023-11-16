@@ -29,13 +29,19 @@ function App() {
     getTweets();
   }
 
+  function sortTweetsByLikes() {
+    let sortedArray = [...allTweets];
+    sortedArray.sort((a, b) => b.likes - a.likes);
+    setallTweets(sortedArray);
+  }
+
   useEffect(() => {
     getTweets();
   }, []);
 
   return (
     <>
-      <Header postTweet={postTweet} />
+      <Header postTweet={postTweet} sortTweetsByLikes={sortTweetsByLikes} />
       <AllTweets
         allTweets={allTweets}
         loading={loading}

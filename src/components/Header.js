@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Header({ postTweet }) {
+function Header({ postTweet, sortTweetsByLikes }) {
   const [tweet, setTweet] = useState("");
 
   function addTweet(event) {
@@ -30,13 +30,19 @@ function Header({ postTweet }) {
                 </button>
                 <ul class="dropdown-menu">
                   <li>
-                    <button class="dropdown-item">Sort by Tweet</button>
+                    <button class="dropdown-item" disabled>
+                      Sort by Tweet
+                    </button>
                   </li>
                   <li>
-                    <button class="dropdown-item">Sort by Date</button>
+                    <button class="dropdown-item" disabled>
+                      Sort by Date
+                    </button>
                   </li>
                   <li>
-                    <button class="dropdown-item">Sort by likes</button>
+                    <button onClick={sortTweetsByLikes} class="dropdown-item">
+                      Sort by likes
+                    </button>
                   </li>
                 </ul>
               </div>
